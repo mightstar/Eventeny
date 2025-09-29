@@ -1,0 +1,47 @@
+services:
+  # PHP Application
+  app:
+    build: .
+    container_name: eventeny-app
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    environment:
+      - DB_HOST=mysql
+      - DB_NAME=eventeny_tickets
+      - DB_USER=eventeny_user
+      - DB_PASS=eventeny_password
+    depends_on:
+      - mysql
+
+  # MySQL Database
+  mysql:
+    image: mysql:8.0
+    container_name: eventeny-mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root_password
+      - MYSQL_DATABASE=eventeny_tickets
+      - MYSQL_USER=eventeny_user
+      - MYSQL_PASSWORD=eventeny_password
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+
+  # phpMyAdmin
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: eventeny-phpmyadmin
+    ports:
+      - "8081:80"
+    environment:
+      - PMA_HOST=mysql
+      - PMA_USER=eventeny_user
+      - PMA_PASSWORD=eventeny_password
+    depends_on:
+      - mysql
+
+volumes:
+  mysql_data:
