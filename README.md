@@ -2,8 +2,11 @@
 
 A modern, responsive ticketing platform built with PHP, MySQL, HTML/CSS/JavaScript, and jQuery. This platform allows event organizers to manage tickets with full CRUD capabilities and provides ticket buyers with a smooth browsing and purchasing experience.
 
+Live: https://eventeny-n4jk8i8b.b4a.run/
 
-https://github.com/user-attachments/assets/60aa650a-4644-4700-bceb-2167d5ff62bb
+
+https://github.com/user-attachments/assets/132df44f-d8bb-4285-a9f9-ffe77800c708
+
 
 
 ## Features
@@ -237,9 +240,5 @@ Notes:
 - Advanced reporting
 - Multi-language support
 - Mobile app integration
-
----
-
-**Built with ❤️ using modern web technologies and best practices.**
 
 
